@@ -5,9 +5,25 @@ const usuarioSchema = Schema({
         type: String,
         require: true
     },
+    lastName: {
+        type: String,
+        require: true
+    },
+    CI: {
+        type: Number,
+        require: true
+    },
+    phoneNumber: {
+        type: Number,
+        require: true
+    },
     email: {
         type: String,
         unique: true,
+        require: true
+    },
+    image: {
+        type: String,
         require: true
     },
     password: {
@@ -16,4 +32,4 @@ const usuarioSchema = Schema({
     },
 })
 
-module.exports = model ('Usuario', usuarioSchema );
+module.exports = model('Usuario', usuarioSchema);
