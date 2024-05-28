@@ -22,10 +22,6 @@ const usuarioSchema = Schema({
         unique: true,
         require: true
     },
-    image: {
-        type: String,
-        require: true
-    },
     password: {
         type: String,
         require: true
