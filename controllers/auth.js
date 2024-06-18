@@ -63,7 +63,7 @@ const loginUsuario = async (req, res = response) => {
 
     try {
 
-        const usuario = await Usuario.findOne({ email });
+        const usuario = await Usuario.findOne({ email }).populate("roles");
 
         if (!usuario) {
             return res.status(400).json({
