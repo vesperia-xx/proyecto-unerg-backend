@@ -26,6 +26,17 @@ const usuarioSchema = Schema({
         type: String,
         require: true
     },
-})
+    roles: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Role",
+        },
+    ],
+},
+    {
+        timestamps: true,
+        versionKey: false,
+    }
+)
 
 module.exports = model('Usuario', usuarioSchema);

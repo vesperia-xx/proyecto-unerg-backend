@@ -1,9 +1,11 @@
 const express = require('express');
 const { dbConnection } = require('./database/config');
-const cors = require ('cors')
+const cors = require ('cors');
+const { createRoles } = require('./libs/initialSetUp');
 require('dotenv').config();
 
 const app = express()
+createRoles()
 
 dbConnection();
 
