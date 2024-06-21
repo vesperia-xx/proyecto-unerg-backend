@@ -89,6 +89,11 @@ const loginUsuario = async (req, res = response) => {
             ok: true,
             uid: usuario.id,
             name: usuario.name,
+            lastName: usuario.lastName,
+            CI: usuario.CI,
+            phoneNumber: usuario.phoneNumber,
+            email: usuario.email,
+            roles: usuario.roles,
             token
         })
 
