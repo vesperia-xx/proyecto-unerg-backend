@@ -2,18 +2,19 @@ const { Schema, model } = require('mongoose');
 
 const actividadServicioSchema = Schema({
 
-    title: {
+    activity: {
         type: String,
         required: true
-    },
-    notes: {
-        type: String,        
     },
     start: {
         type: Date,
         required: true
     },
     end: {
+        type: Date,
+        required: true
+    },
+    hours: {
         type: Date,
         required: true
     },
@@ -25,7 +26,7 @@ const actividadServicioSchema = Schema({
 
 });
 
-EventoSchema.method('toJSON', function() {
+EventoSchema.method('toJSON', function () {
     const { __v, _id, ...object } = this.toObject();
     object.id = _id;
     return object;
@@ -33,4 +34,4 @@ EventoSchema.method('toJSON', function() {
 
 
 
-module.exports = model('ActividadServicio', actividadServicioSchema );
+module.exports = model('ActividadServicio', actividadServicioSchema);

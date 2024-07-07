@@ -2,20 +2,18 @@ const { Schema, model } = require('mongoose');
 
 const actividadPasantiasSchema = Schema({
 
-    title: {
+    activity: {
         type: String,
         required: true
     },
-    notes: {
-        type: String,        
+    week: {
+        type: number,        
     },
-    start: {
+    date: {
         type: Date,
-        required: true
     },
-    end: {
-        type: Date,
-        required: true
+    hours: {
+        type: number,
     },
     user: {
         type: Schema.Types.ObjectId,
