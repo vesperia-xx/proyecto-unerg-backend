@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose')
 
-const studentServicioSchema = new mongoose.Schema({
+const studentServicioSchema = Schema({
     title: {
         type: String,
         required: true
@@ -19,12 +19,8 @@ const studentServicioSchema = new mongoose.Schema({
     },
     hour: {
         type: Number,
-        required: true
-    },
-    status: {
-        type: String,
-        enum: ['en progreso', 'completado'], // Ejemplo de posibles valores de estado
-        default: 'en progreso'
+        required: true,
+        default: 0
     },
     user: {
         type: Schema.Types.ObjectId,
@@ -35,6 +31,4 @@ const studentServicioSchema = new mongoose.Schema({
     timestamps: true // Esto agrega createdAt y updatedAt automáticamente
 });
 
-const StudentServicio = mongoose.model('StudentServicio', studentServicioSchema);
-
-module.exports = StudentServicio;
+module.exports = model('StudentServicio', studentServicioSchema);

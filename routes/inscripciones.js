@@ -3,7 +3,7 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 const router = Router();
-const { crearPasantias, crearServicio, obtenerPasantias } = require('../controllers/inscripciones');
+const { crearPasantias, crearServicio, obtenerPasantias, obtenerServicios } = require('../controllers/inscripciones');
 
 const { validarCampos } = require('../middlewares/validar-campos');
 
@@ -17,9 +17,17 @@ router.post('/pasantias', [
 ],
     crearPasantias);
 
-router.post('/servicio', crearServicio);
-
+router.post('/servicio', 
+    [
+        check('title', 'El título es obligatorio').not().isEmpty(),
+        check('empresa', 'La empresa es obligatoria').not().isEmpty(),
+        check('tutorAcademico', 'El tutor comunitario es obligatorio').not().isEmpty(),
+        check('tutorComunitario', 'El tutor comunitario es obligatorio').not().isEmpty(),
+        validarCampos
+    ],
+    crearServicio);
 
 router.get('/registro-pasantias', obtenerPasantias);
+router.get('/registro-servicio', obtenerServicios);
 
 module.exports = router;
