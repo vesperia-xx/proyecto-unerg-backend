@@ -22,11 +22,6 @@ const studentPasantiasSchema = Schema({
         required: true,
         default: 0 // Establece el valor predeterminado en 0
     },
-    status: {
-        type: String,
-        enum: ['en progreso', 'completado'],
-        default: 'en progreso'
-    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'Usuario',

@@ -27,7 +27,7 @@ const crearPasantias = async (req, res = response) => {
         }
 
         // Si no existe, procedemos a crear la nueva pasantía
-        const studentPasantias = new StudentPasantias({ title, empresa, tutorAcademico, tutorEmpresarial, hour, status, user });
+        const studentPasantias = new StudentPasantias({ title, empresa, tutorAcademico, tutorEmpresarial, hour, user });
 
         await studentPasantias.save();
 
