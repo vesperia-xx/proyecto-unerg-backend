@@ -124,11 +124,26 @@ const revalidarToken = async (req, res = response) => {
     })
 }
 
-
+const getUsuarios = async (req, res = response) => {
+    try {
+        const usuarios = await Usuario.find().populate("roles");
+        res.json({
+            ok: true,
+            usuarios
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Por favor hable con el administrador'
+        });
+    }
+};
 
 
 module.exports = {
     crearUsuario,
     loginUsuario,
-    revalidarToken
+    revalidarToken,
+    getUsuarios,
 }
